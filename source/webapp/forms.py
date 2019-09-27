@@ -1,7 +1,8 @@
 from django import forms
+from webapp.models import Article, Comment
 from django.forms import widgets
 
-from webapp.models import Article
+
 
 
 class ArticleForm(forms.Form):
@@ -9,3 +10,9 @@ class ArticleForm(forms.Form):
     author = forms.CharField(max_length=40, required=True, label='Author')
     text = forms.CharField(max_length=3000, required=True, label='Text',
                            widget=widgets.Textarea)
+
+
+class CommentForm(forms.Form):
+    article = forms.ModelChoiceField(queryset=Article.objects.all(), required=False, label='Article')
+    text = forms.CharField(max_length=400, required=True, label='Text', widget=widgets.Textarea)
+    author = forms.CharField(max_length=40, required=False, label='Author')
