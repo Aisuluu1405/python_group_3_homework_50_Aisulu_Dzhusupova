@@ -1,0 +1,200 @@
+[
+{
+  "model": "webapp.article",
+  "pk": 1,
+  "fields": {
+    "title": "Trump impeachment inquiry: Whistleblower 'is CIA officer'",
+    "text": "The whistleblower whose complaint has led to an impeachment inquiry against President Donald Trump is a CIA officer, US media report.\r\nThe unnamed officer once worked at the White House, several US outlets said.\r\nThe whistleblower says senior White House officials tried to \"lock down\" all details of a phone call between Mr Trump and the Ukrainian president.\r\nMr Trump demanded to know who gave information to the whistleblower, saying the source was \"close to a spy\".\r\nIn the call on 25 July, Mr Trump pushed Volodymyr Zelensky to investigate his leading Democratic political rival, Joe Biden.\r\nThe complaint, released on Thursday, says the call transcript was not stored in the usual computer system. Instead it was stored in a separate system used for classified information.",
+    "author": "Tom Johns",
+    "created_at": "2019-09-27T08:27:46.003Z",
+    "updated_at": "2019-09-27T08:27:46.003Z",
+    "category": 5
+  }
+},
+{
+  "model": "webapp.article",
+  "pk": 2,
+  "fields": {
+    "title": "Saudi Arabia to open up to foreign tourists with new visas",
+    "text": "Saudi Arabia will open its doors to international tourists for the first time as part of a broader push to cut its economic dependence on oil.\r\nOn Friday, the kingdom will launch a visa regime for 49 countries and relax strict dress codes for female visitors.\r\nTourism Minister Ahmad al-Khateeb described it as a \"historic moment\" for the country.\r\nVisas have until now largely been restricted to pilgrims, business people and expatriate workers.\r\nSaudi Arabia is also hoping to secure foreign investment in the tourism industry. It wants tourism to rise from 3% to 10% of gross domestic product by 2030.\r\nSaudi Arabia allows women to travel independently\r\nCountry profile: Saudi Arabia\r\nSaudis announce $64bn entertainment fund\r\n\"Visitors will be surprised... by the treasures we have to share - five Unesco World Heritage Sites, a vibrant local culture and breathtaking natural beauty,\" Mr al-Khateeb said.",
+    "author": "Araya Fauzi",
+    "created_at": "2019-09-27T08:29:50.669Z",
+    "updated_at": "2019-09-27T08:29:50.669Z",
+    "category": 1
+  }
+},
+{
+  "model": "webapp.article",
+  "pk": 3,
+  "fields": {
+    "title": "The bizarre fabrics that fashion is betting",
+    "text": "Like many teenagers, Sarah King used to buy a new outfit every few weeks to try and keep up with the latest trends.\r\n\"When I was 16 or 17 I would buy a new outfit for a party and on every payday, stocking up on new outfits based on was trendy and popular, or what celebrities or my friends were wearing,\" she says.\r\nNow with a sustainable fashion course under her belt, the 26-year-old digital marketing executive and vegan fashion blogger is part of a growing movement turning its back on disposable products.\r\nIn its sights is the growing waste and sustainability crisis prompted by the fashion industry.",
+    "author": "Eleanor Lawrie",
+    "created_at": "2019-09-27T08:31:51.461Z",
+    "updated_at": "2019-09-27T08:31:51.461Z",
+    "category": 1
+  }
+},
+{
+  "model": "webapp.article",
+  "pk": 4,
+  "fields": {
+    "title": "Hong Kong protests: Students boycott class on first day back",
+    "text": "Thousands of secondary school and university students have boycotted classes in Hong Kong, in the latest pro-democracy protests.\r\nOrganisers say 10,000 pupils from 200 secondary schools did not turn up for the first day for the new school year.\r\nThe student action comes on the same day as a call for a broad two-day strike and large rally.\r\nProtests over the weekend saw some of the worst violence in weeks between protesters and police.\r\nOn Saturday, protesters threw petrol bombs, lit fires and attacked the city's parliament building while police used tear gas, rubber bullets, water cannons and fired live warning shots",
+    "author": "Unknown",
+    "created_at": "2019-09-27T08:33:10.618Z",
+    "updated_at": "2019-09-27T08:33:10.618Z",
+    "category": 4
+  }
+},
+{
+  "model": "webapp.article",
+  "pk": 5,
+  "fields": {
+    "title": "Brazil textbooks 'to be revised to deny 1964 coup'",
+    "text": "Brazil's Education Minister Ricardo V\u00e9lez says school textbooks will be revised so that children are taught \"a wider version of history\".\r\nMr V\u00e9lez denies that the 1964 military ousting of democratically elected President Jo\u00e3o Goulart was a coup.\r\nHe also refers to the 21 years of military rule which followed as \"a democratic regime by force\".\r\nHis comments come days after far-right President Jair Bolsonaro announced the coup's anniversary would be celebrated.",
+    "author": "Rodrigo Peres",
+    "created_at": "2019-09-27T08:34:54.170Z",
+    "updated_at": "2019-09-27T08:34:54.170Z",
+    "category": 4
+  }
+},
+{
+  "model": "webapp.article",
+  "pk": 6,
+  "fields": {
+    "title": "Mohamed Salah: Fifa says Egyptian votes void because of capital letters",
+    "text": "Two votes for Mohamed Salah in the Best Fifa men's player award were not counted because signatures were in capital letters, says Fifa.\r\nThe Egyptian Football Association (EFA) said acting Egypt coach Shawky Gharib and captain Ahmed Elmohamady voted for Liverpool forward Salah.\r\nFifa said: \"The signatures on the voting forms were in capital letters and thus seemed not valid.\"\r\nThe forms also lacked a mandatory signature by the EFA general secretary.\r\nBarcelona's Lionel Messi won the award on Monday ahead of Juventus forward Cristiano Ronaldo and Liverpool defender Virgil van Dijk.\r\nSalah finished fourth in the voting, although the invalid votes would not have affected the standings.",
+    "author": "Tarek Talaat",
+    "created_at": "2019-09-27T08:36:48.432Z",
+    "updated_at": "2019-09-27T08:36:48.432Z",
+    "category": 3
+  }
+},
+{
+  "model": "webapp.comment",
+  "pk": 1,
+  "fields": {
+    "article": 6,
+    "text": "it`s terrible!",
+    "author": "Anonymous",
+    "created_at": "2019-09-27T08:38:19.065Z",
+    "updated_at": "2019-09-27T08:38:19.065Z"
+  }
+},
+{
+  "model": "webapp.comment",
+  "pk": 2,
+  "fields": {
+    "article": 1,
+    "text": "Will there really be impeachment?",
+    "author": "Tom Cruz",
+    "created_at": "2019-09-27T08:39:10.155Z",
+    "updated_at": "2019-09-27T08:39:10.155Z"
+  }
+},
+{
+  "model": "webapp.comment",
+  "pk": 3,
+  "fields": {
+    "article": 2,
+    "text": "it`s super new!",
+    "author": "Malika",
+    "created_at": "2019-09-27T08:39:52.694Z",
+    "updated_at": "2019-09-27T08:39:52.694Z"
+  }
+},
+{
+  "model": "webapp.comment",
+  "pk": 4,
+  "fields": {
+    "article": 5,
+    "text": "Teriible!",
+    "author": "Anonymous",
+    "created_at": "2019-09-27T08:40:34.678Z",
+    "updated_at": "2019-09-27T08:40:34.678Z"
+  }
+},
+{
+  "model": "webapp.comment",
+  "pk": 5,
+  "fields": {
+    "article": 3,
+    "text": "Good",
+    "author": "Betty",
+    "created_at": "2019-09-27T08:40:56.801Z",
+    "updated_at": "2019-09-27T08:40:56.801Z"
+  }
+},
+{
+  "model": "webapp.comment",
+  "pk": 6,
+  "fields": {
+    "article": 6,
+    "text": "Messi-the best!",
+    "author": "Jorge Migel",
+    "created_at": "2019-09-27T08:41:35.602Z",
+    "updated_at": "2019-09-27T08:41:35.602Z"
+  }
+},
+{
+  "model": "webapp.category",
+  "pk": 1,
+  "fields": {
+    "name": "Economic"
+  }
+},
+{
+  "model": "webapp.category",
+  "pk": 2,
+  "fields": {
+    "name": "\u0421ulture"
+  }
+},
+{
+  "model": "webapp.category",
+  "pk": 3,
+  "fields": {
+    "name": "Sport"
+  }
+},
+{
+  "model": "webapp.category",
+  "pk": 4,
+  "fields": {
+    "name": "Education"
+  }
+},
+{
+  "model": "webapp.category",
+  "pk": 5,
+  "fields": {
+    "name": "Politics"
+  }
+},
+{
+  "model": "webapp.category",
+  "pk": 6,
+  "fields": {
+    "name": "Travels"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$150000$eotxSVUi6YWx$5vK5nFlhdOKcAMbCr0IGiCCNNc80asOUp3aPi29KGPU=",
+    "last_login": "2019-09-27T08:07:44.168Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2019-09-27T07:45:41.606Z",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]
