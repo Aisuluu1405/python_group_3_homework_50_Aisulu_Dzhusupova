@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {%  block menu %}
-{#     <li><a href="{% url 'article_add' %}">Add Article</a></li>#}
+     <li><a href="{% url 'article_add' %}">Add Article</a></li>
 {% endblock %}
 
 {% block content %}
@@ -11,8 +11,8 @@
         <h2>{{ article.title }}</h2>
         <div>{{ article.text }}</div>
         <p><a href="{% url 'article_view'  article.pk%}">More...</a> </p>
-{#        <p><a href="{% url 'article_update'  article.pk%}">Edit</a> </p>#}
-{#        <p><a href="{% url 'article_delete'  article.pk%}">Delete</a> </p>#}
+        <p><a href="{% url 'article_update'  article.pk%}">Edit</a> </p>
+        <p><a href="{% url 'article_delete'  article.pk%}">Delete</a> </p>
         <hr/>
     {% endfor %}
 {% endblock %}
