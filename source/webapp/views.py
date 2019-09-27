@@ -12,4 +12,15 @@ class ArticleIndexView(TemplateView):
         return context
 
 
+class ArticleView(TemplateView):
+    template_name = 'article/article.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        article_pk = kwargs.get('pk')
+        context['article'] = get_object_or_404(Article, pk=article_pk)
+        return context
+
+
+
 
