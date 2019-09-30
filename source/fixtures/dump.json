@@ -5,9 +5,9 @@
   "fields": {
     "title": "Trump impeachment inquiry: Whistleblower 'is CIA officer'",
     "text": "The whistleblower whose complaint has led to an impeachment inquiry against President Donald Trump is a CIA officer, US media report.\r\nThe unnamed officer once worked at the White House, several US outlets said.\r\nThe whistleblower says senior White House officials tried to \"lock down\" all details of a phone call between Mr Trump and the Ukrainian president.\r\nMr Trump demanded to know who gave information to the whistleblower, saying the source was \"close to a spy\".\r\nIn the call on 25 July, Mr Trump pushed Volodymyr Zelensky to investigate his leading Democratic political rival, Joe Biden.\r\nThe complaint, released on Thursday, says the call transcript was not stored in the usual computer system. Instead it was stored in a separate system used for classified information.",
-    "author": "Tom Johns",
+    "author": "Tom John Mark",
     "created_at": "2019-09-27T08:27:46.003Z",
-    "updated_at": "2019-09-27T08:27:46.003Z",
+    "updated_at": "2019-09-30T11:59:21.911Z",
     "category": 5
   }
 },
@@ -120,10 +120,10 @@
   "pk": 5,
   "fields": {
     "article": 3,
-    "text": "Good",
+    "text": "Good and",
     "author": "Betty",
     "created_at": "2019-09-27T08:40:56.801Z",
-    "updated_at": "2019-09-27T08:40:56.801Z"
+    "updated_at": "2019-09-27T10:18:27.864Z"
   }
 },
 {
@@ -131,10 +131,21 @@
   "pk": 6,
   "fields": {
     "article": 6,
-    "text": "Messi-the best!",
+    "text": "Super! Messi-the best!",
     "author": "Jorge Migel",
     "created_at": "2019-09-27T08:41:35.602Z",
-    "updated_at": "2019-09-27T08:41:35.602Z"
+    "updated_at": "2019-09-27T10:17:48.590Z"
+  }
+},
+{
+  "model": "webapp.comment",
+  "pk": 19,
+  "fields": {
+    "article": 1,
+    "text": "\u0421\u0435\u0440\u044c\u0435\u0437\u043d\u043e \u0447\u0442\u043e \u043b\u0438?",
+    "author": "\u0412\u043e\u0432\u0430 \u041f\u0443\u0442\u0438\u043d",
+    "created_at": "2019-09-30T12:00:43.047Z",
+    "updated_at": "2019-09-30T12:00:43.047Z"
   }
 },
 {
