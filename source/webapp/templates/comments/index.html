@@ -7,8 +7,7 @@
         <div class="card m-5">
   <h5 class="card-header pt-4 font-weight-bolder">
       <p>Created by ({{ comment.author }}) at ({{ comment.created_at|date:'d.m.Y H:i:s' }})</p>
-{#      f59148b6773cf3 #}
-{#      Случайно удалила ссылку на статью, ссылку можно посмотреть в этом коммите#}
+      <p><a href="{%  url 'article_view' comment.article.pk %}">{{ comment.article.title }}</a></a> </p>
   </h5>
   <div class="card-body">
       <p class="card-text">{{ comment.text }}</p>
