@@ -3,10 +3,12 @@
 
 
 {% block content %}
-    <h1>Are you sure want to delete comment {{comment}}?</h1>
+    <div class="delete-info text-center">
+        <h1>Are you sure want to delete comment <b>"{{comment}}"</b>  by {{ comment.author }}?</h1>
+    </div>
     <form method="POST" action="{% url 'comment_delete' comment.pk %}" class="text-center">
         {% csrf_token %}
-        <p><input type="submit" value="Confirm"></p>
-        <p><a href="{% url "comment_index" %}">Cancel</a></p>
+        <p><input type="submit" value="Yes,delete." class="btn btn-outline-dark mt-5"></p>
+        <p><a href="{% url "comment_index"%}" class="btn btn-outline-dark mt-5">No, Cancel</a></p>
     </form>
 {% endblock %}

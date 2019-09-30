@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}{{ article.title }}{% endblock %}
+
+{% block content %}
+
+<div class="card m-5">
+  <h5 class="card-header pt-4 font-weight-bold">{{ article.title }}</h5>
+  <div class="card-body">
+      <p class="card-text pre">{{ article.text }}</p>
+  </div>
+</div>
+    <h2>Add a new comment</h2>
+    <form action="{% url 'article_comment_add' article.pk %}" method="POST">
+        {% csrf_token %}
+        <div class="comment-add">
+            <label>Author:</label><input type="text" name="author" required>
+        </div>
+        <div class="comment-add">
+            <label>Text:</label><textarea name="text" required></textarea></p>
+        </div>
+        <div class ="submit">
+            <p><input type="submit" value="Add comment"></p>
+        </div>
+    </form>
+
+    {%  for comment in comments %}
+        <div class="card m-5">
+  <h5 class="card-header pt-4 font-weight-bolder">
+      <p>Created by ({{ comment.author }}) at ({{ comment.created_at|date:'d.m.Y H:i:s' }})</p>
+  </h5>
+  <div class="card-body">
+      <p class="card-text">{{ comment.text }}</p>
+  </div>
+</div>
+    {% endfor %}
+{% endblock %}

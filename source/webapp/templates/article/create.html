@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 
-{% block title %}Create Article{% endblock %}
+{% block title %}Add Article{% endblock %}
 
 {% block content %}
-    <h1>Create Article</h1>
+    <h1>Add new Article</h1>
     <form method="POST" action="{% url 'article_add' %}">
-        {% include 'partial/article_form.html' with button_text='Create'%}
+        {% include 'partial/form.html' with button_text='Add'%}
 
     </form>
 {% endblock %}

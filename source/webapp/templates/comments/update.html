@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 
-{% block title %}Update Comment{% endblock %}
+{% block title %}Edit Comment{% endblock %}
 
 {% block content %}
-    <h1>Update Comment</h1>
+    <h1>Edit Comment</h1>
     <form method="POST" action="{% url 'comment_update' comment.pk %}">
-        {% include 'partial/article_form.html' with button_text='Update'%}
+        {% include 'partial/form.html' with button_text='Edit'%}
     </form>
 {% endblock %}

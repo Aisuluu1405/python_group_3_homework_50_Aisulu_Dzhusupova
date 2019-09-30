@@ -1,15 +1,17 @@
 {% extends 'base.html' %}
 {% block title %}{{ article.title }}{% endblock %}
 
-{% block menu %}
-{#    <li><a href="{% url 'article_update' article.pk %}">Edit</a> </li>#}
-{#    <li><a href="{% url 'article_delete' article.pk %}">Delete</a> </li>#}
-{% endblock %}
-
 {% block content %}
-    <div class="container">
-        <h1>{{ article.title }}</h1>
-        <p>Created by: {{article.author}} at {{article.created_at}}</p>
-        <div class="pre">{{ article.text }}</div>
-    </div>
+
+<div class="card m-5">
+  <h5 class="card-header pt-4 font-weight-bold">{{ article.title }}</h5>
+  <div class="card-body">
+      <p class="card-text pre">{{ article.text }}</p>
+      <p>
+        <a href="{% url 'article_update' article.pk %}" class="btn btn-outline-dark">Edit</a>
+        <a href="{% url 'article_delete' article.pk %}" class="btn btn-outline-dark ml-5">Delete</a>
+      </p>
+  </div>
+</div>
+
 {% endblock %}

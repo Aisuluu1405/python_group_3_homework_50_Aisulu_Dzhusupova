@@ -4,14 +4,18 @@
     <h1>Comments</h1>
     <hr/>
     {%  for comment in comments %}
-        <h2>{{ comment.text }}</h2>
-        <div>{{ comment.author }}</div>
-        <div>{{ comment.created_at }}</div>
-
-        <p><a href="{%  url 'article_view' comment.article.pk %}">{{ comment.article.title }}</a></a> </p>
-        <p><a href="{% url 'comment_update' comment.pk %}">Edit</a> </p>
-        <p><a href="{% url 'comment_delete' comment.pk%}">Delete</a> </p>
-        <p><a href="{% url 'comment_add' %}">Add comment</a></p>
-        <hr/>
+        <div class="card m-5">
+  <h5 class="card-header pt-4 font-weight-bolder">
+      <p>Created by ({{ comment.author }}) at ({{ comment.created_at|date:'d.m.Y H:i:s' }})</p>
+  </h5>
+  <div class="card-body">
+      <p class="card-text">{{ comment.text }}</p>
+    <p>
+        <a href="{% url 'comment_add' %}" class="btn btn-outline-dark">Add comment</a>
+        <a href="{% url 'comment_update' comment.pk %}" class="btn btn-outline-dark ml-4">Edit</a>
+        <a href="{% url 'comment_delete' comment.pk %}" class="btn btn-outline-dark ml-4">Delete</a>
+    </p>
+  </div>
+</div>
     {% endfor %}
 {% endblock %}

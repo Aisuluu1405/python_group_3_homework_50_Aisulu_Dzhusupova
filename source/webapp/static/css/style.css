@@ -17,5 +17,53 @@ body{
 }
 h1{
     margin-top: 40px;
-    text-align: center;
+    margin-left: 35%;
+}
+.btn{
+    width: 130px;
+}
+.container_artcom h1{
+    margin-left: 10px;
+    margin-top: 60px;
+}
+h2{
+    margin-left: 35%;
+    font-size: 25px;
+}
+.math_form{
+    padding-top: 50px;
+    margin: 30px 20px;
+    display: flex;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.comment-add label{
+    width: 120px;
+    height: 30px;
+    display: inline-block;
+    margin-top: 50px;
+    margin-left: 70px;
+    margin-bottom: 30px;
+    font-size: 18px;
+}
+
+.comment-add input {
+    font-size: 20px;
+    width: 500px;
+}
+
+.submit p{
+    border-radius: 3px;
+    font-size: 15px;
+    width: 120px;
+    height: 30px;
+    margin-left: 40%;
+}
+textarea{
+    width: 500px;
+    height: 200px;
+}
+.delete-info h1{
+    margin-left: 10%;
 }
