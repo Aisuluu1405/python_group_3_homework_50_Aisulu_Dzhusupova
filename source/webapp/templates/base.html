@@ -25,14 +25,14 @@
         <a class="nav-link" href="{% url 'index' %}">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'article_add' %}">Add Article</a>
+        <a class="nav-link ml-5" href="{% url 'article_add' %}">Add Article</a>
       </li>
+       <li class="nav-item">
+          <a class="nav-link ml-5" href="{% url 'comment_add' %}">Add comment</a>
+       </li>
         <li class="nav-item">
-            <a class="nav-link" href="{% url 'comment_index' %}">Comments</a>
+            <a class="nav-link ml-5" href="{% url 'comment_index' %}">Comments</a>
         </li>
-{#        <li class="nav-item">#}
-{#            <a class="nav-link" href="{% url 'article_comment' article.pk %}">Comments and Article</a>#}
-{#        </li>#}
 
            {% block menu %} {% endblock %}
        </ul>

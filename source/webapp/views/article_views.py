@@ -1,18 +1,18 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
 from django.views import View
-from webapp.models import Article
-
+from webapp.models import Article, Comment
 from webapp.forms import ArticleForm
+from webapp.views.base_views import FormView
 
 
-class ArticleIndexView(TemplateView):
+class ArticleIndexView(ListView):
     template_name = 'article/index.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['articles'] = Article.objects.all()
-        return context
+    context_object_name = 'articles'
+    model = Article
+    ordering = ['-created_at']
+    paginate_by = 4
+    paginate_orphans = 1
 
 
 class ArticleView(TemplateView):
@@ -23,32 +23,6 @@ class ArticleView(TemplateView):
         article_pk = kwargs.get('pk')
         context['article'] = get_object_or_404(Article, pk=article_pk)
         return context
-
-
-class FormView(View):
-    template_name = None
-
-    def get(self, request, *args, **kwargs):
-        form = self.get_form()
-        return render(request, self.template_name, context={'form': form})
-
-    def post(self, request, *args, **kwargs):
-        form = self.get_form(request.POST)
-        if form.is_valid():
-            self.form_valid(form)
-            url = self.get_url()
-            return redirect(url)
-        else:
-            return render(request, self.template_name, context={'form': form})
-
-    def get_form(self, data=None):
-        raise NotImplementedError
-
-    def form_valid(self, form):
-        raise NotImplementedError
-
-    def get_url(self):
-        raise NotImplementedError
 
 
 class ArticleCreateView(FormView):
@@ -118,8 +92,10 @@ class ArticleCommentView(TemplateView):
         context = super().get_context_data(**kwargs)
         article_pk = kwargs.get('pk')
         context['article'] = get_object_or_404(Article, pk=article_pk)
-        context['comments'] = context['article'].comments.order_by('-created_at')
+        article = context['article']
+        context['comments'] = article.comments.order_by('-created_at')
         return context
+
 
 class ArticleCommentCreateView(View):
 

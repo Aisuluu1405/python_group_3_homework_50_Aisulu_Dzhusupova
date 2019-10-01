@@ -1,44 +1,18 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
-from django.views.generic import TemplateView
+from django.views.generic import ListView
 from django.views import View
 from webapp.models import Comment
-
 from webapp.forms import CommentForm
+from webapp.views.base_views import FormView
 
-class CommentIndexView(TemplateView):
+
+class CommentIndexView(ListView):
     template_name = 'comments/index.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['comments'] = Comment.objects.all().order_by('-created_at')
-        return context
-
-
-class FormView(View):
-    template_name = None
-
-    def get(self, request, *args, **kwargs):
-        form = self.get_form()
-        return render(request, self.template_name, context={'form': form})
-
-    def post(self, request, *args, **kwargs):
-        form = self.get_form(request.POST)
-        if form.is_valid():
-            self.form_valid(form)
-            url = self.get_url()
-            return redirect(url)
-        else:
-            return render(request, self.template_name, context={'form': form})
-
-    def get_form(self, data=None):
-        raise NotImplementedError
-
-    def form_valid(self, form):
-        raise NotImplementedError
-
-    def get_url(self):
-        raise NotImplementedError
-
+    context_object_name = 'comments'
+    model = Comment
+    ordering = ['-created_at']
+    paginate_by = 6
+    paginate_orphans = 1
 
 
 class CommentCreateView(FormView):

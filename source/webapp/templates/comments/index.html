@@ -1,7 +1,12 @@
 {% extends 'base.html' %}
 
+
 {% block content %}
+
     <h1>Comments</h1>
+    {% if is_paginated %}
+        {% include 'partial/pagination.html' %}
+    {% endif %}
     <hr/>
     {%  for comment in comments %}
         <div class="card m-5">
@@ -19,4 +24,9 @@
   </div>
 </div>
     {% endfor %}
+
+    {% if is_paginated %}
+        {% include 'partial/pagination.html' %}
+    {% endif %}
+
 {% endblock %}
