@@ -1,9 +1,11 @@
+from django.core.paginator import Paginator
 from django.shortcuts import render, get_object_or_404, redirect, reverse
-from django.views.generic import TemplateView, ListView
+from django.urls import reverse_lazy
+from django.views.generic import TemplateView, ListView, UpdateView
 from django.views import View
 from webapp.models import Article, Comment
-from webapp.forms import ArticleForm
-from webapp.views.base_views import FormView
+from webapp.forms import ArticleForm, CommentForm
+from webapp.views.base_views import DetailView, CreateView, DeleteView
 
 
 class ArticleIndexView(ListView):
@@ -15,74 +17,69 @@ class ArticleIndexView(ListView):
     paginate_orphans = 1
 
 
-class ArticleView(TemplateView):
+class ArticleView(DetailView):
     template_name = 'article/article.html'
+    model = Article
+    context_key = 'article'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        article_pk = kwargs.get('pk')
-        context['article'] = get_object_or_404(Article, pk=article_pk)
-        return context
+# class ArticleView(DetailView):
+#     template_name = 'article/article.html'
+#     model = Article
+#     context_object_name = 'article'
+#
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         context['form'] = CommentForm()
+#         article = context['article']
+#         comments = article.comments.order_by('-created_at')
+#         # self.paginate_comments_to_context(comments, context)
+#         return context
+
+    # def paginate_comments_to_context(self, comments, context):
+    #     paginator = Paginator(comments, 3, 0)
+    #     page_number = self.request.GET.get('page', 1)
+    #     page = paginator.get_page(page_number)
+    #     context['paginator'] = paginator
+    #     context['page_obj'] = page
+    #     context['comments'] = page.object_list
+    #     context['is_paginated'] = page.has_other_pages()
 
 
-class ArticleCreateView(FormView):
+class ArticleCreateView(CreateView):
+    model = Article
     template_name = 'article/create.html'
+    form_class = ArticleForm
 
-    def get_form(self, data=None):
-        return ArticleForm(data=data)
-
-    def form_valid(self, form):
-        data = form.cleaned_data
-        self.article = Article.objects.create(
-            title=data['title'],
-            author=data['author'],
-            text=data['text'],
-            category=data['category']
-        )
-
-    def get_url(self):
-        return reverse('article_view', kwargs={'pk': self.article.pk})
+    def get_redirect_url(self):
+        return reverse('article_view', kwargs={'pk': self.object.pk})
 
 
-class ArticleEditView(View):
+class ArticleEditView(UpdateView):
+    model = Article
+    template_name = 'article/update.html'
+    form_class = ArticleForm
+    context_object_name = 'article'
 
-    def get(self, request, *args, **kwargs):
-        article_pk= kwargs.get('pk')
-        article = get_object_or_404(Article, pk=article_pk)
-        form = ArticleForm(data={
-            'title': article.title,
-            'author': article.author,
-            'text': article.text,
-            })
-        return render(request, 'article/update.html', context={'form': form, 'article': article})
-
-    def post(self, request, *args, **kwargs):
-        article_pk = kwargs.get('pk')
-        article = get_object_or_404(Article, pk=article_pk)
-        form = ArticleForm(data=request.POST)
-        if form.is_valid():
-            data = form.cleaned_data
-            article.title = data['title']
-            article.author = data['author']
-            article.text = data['text']
-            article.save()
-            return redirect('article_view', pk=article.pk)
-        else:
-            return render(request, 'article/update.html', context={'form': form, 'article': article})
+    def get_success_url(self):
+        return reverse('article_view', kwargs={'pk': self.object.pk})
 
 
-class ArticleDeleteView(View):
+class ArticleDeleteView(DeleteView):
+    template_name = 'article/delete.html'
+    model = Article
+    context_key = 'article'
+    redirect_url = reverse_lazy('index')
 
-    def get(self, request, *args, **kwargs):
-        article_pk = kwargs.get('pk')
-        article = get_object_or_404(Article, pk=article_pk)
-        return render(request, 'article/delete.html', context={'article': article})
-
-    def post(self, *args, **kwargs):
-        article_pk = kwargs.get('pk')
-        article = get_object_or_404(Article, pk=article_pk)
-        article.delete()
-        return redirect('index')
+    # def get(self, request, *args, **kwargs):
+    #     article_pk = kwargs.get('pk')
+    #     article = get_object_or_404(Article, pk=article_pk)
+    #     return render(request, 'article/delete.html', context={'article': article})
+    #
+    # def post(self, *args, **kwargs):
+    #     article_pk = kwargs.get('pk')
+    #     article = get_object_or_404(Article, pk=article_pk)
+    #     article.delete()
+    #     return redirect('index')
 
 
 class ArticleCommentView(TemplateView):
