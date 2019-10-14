@@ -2,6 +2,7 @@
 
 {% block content %}
     <h1>Articles</h1>
+    {% include 'partial/simple_search.html' %}
     {% if is_paginated %}
    {% include 'partial/pagination.html' %}
 {% endif %}
@@ -19,7 +20,6 @@
     <p class="card-text">{{ article.text }}</p>
     <p>
         <a href="{% url 'article_view' article.pk %}" class="btn btn-outline-dark">More</a>
-        <a href="{% url 'article_comment' article.pk %}" class="btn btn-outline-dark ml-5">Comments</a>
     </p>
   </div>
 </div>
